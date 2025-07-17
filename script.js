@@ -54,21 +54,27 @@ const questoes = [
 
 document.addEventListener("DOMContentLoaded", () => {
     console.log('pagina carregou!');
+    const opcoes = document.querySelectorAll('.answer-option');
     let i = 0;
     let numeroQuest = 1;
     let acertos = 0;
     let erros = 0;
+    let contadorAjuda = 3;
 
-
-    function renderizarTela(i) {
+    function renderizarDashboard() {
      const QuestaoElement = document.getElementById('questao');
      const acertosElement = document.getElementById('acerto');
      const errosElement = document.getElementById('erro');
+     const ajudaElement = document.querySelector('.help-counter');
+     ajudaElement.textContent = contadorAjuda;
      QuestaoElement.textContent = numeroQuest + '/' + questoes.length;
      acertosElement.textContent = acertos;
      errosElement.textContent = erros;
+    }
+    
+    renderizarDashboard();
 
-
+    function renderizarTela(i) {
      const titulo = document.querySelector(".question-bubble h2");
      titulo.textContent = questoes[i].titulo;
 
@@ -87,23 +93,49 @@ document.addEventListener("DOMContentLoaded", () => {
      }, 500);
     }
 
+   
     renderizarTela(i);
 
-    const opcoes = document.querySelectorAll('.answer-option');
+    
+function executarAjuda() {
+    const buttonHelp = document.querySelector('.help-button');
+    buttonHelp.addEventListener("click", ()=> {
+        
+    })
+}
+
+    function limpaClasses(){
+        opcoes.forEach(conteudo => {
+        conteudo.classList.remove('certa', 'errada');
+        });
+    };
+
+    
+    
 
     opcoes.forEach((opcao, index) => {
         opcao.addEventListener("click", () => {
+            alternativaCerta = questoes[i].certa;
             if (i < questoes.length - 1){
-                if (index === questoes[i].certa) {
-                 alert('acertou');
-                 acertos++;     
+                if (index === alternativaCerta) {
+                    opcoes[index].classList.add('certa');
+                    acertos++;
+                    console.log(opcoes);
+
                 } else {
-                    alert('errou');
-                    erros++;                 
-                }
-             i++;
-             numeroQuest++;
-             renderizarTela(i);
+                    opcoes[index].classList.add('errada');
+                    opcoes[alternativaCerta].classList.add('certa');
+                    erros++;
+                }   
+                renderizarDashboard();
+                setTimeout(() => {
+                i++;
+                numeroQuest++;
+                limpaClasses();
+                renderizarDashboard();               
+                renderizarTela(i);
+                }, 2000);
+            
             } else {    
             alert('acabou o quiz rapaz');        
             }

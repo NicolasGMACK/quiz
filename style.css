@@ -101,7 +101,7 @@ body {
 
 /* Botão de Ajuda */
 .help-button {
-    background: linear-gradient(45deg, #ff9a44, #ff6a55);
+    background: #ff6a55;
     color: #ffffff;
     font-size: 1.1rem;
     font-weight: 600;
@@ -118,8 +118,8 @@ body {
 }
 
  .help-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(255, 120, 85, 0.5);
+    background: #e25643;
+    box-shadow: rgb(205, 85, 69)0px rgba(255, 120, 85, 0.5);
 } 
 
 .help-counter {
@@ -188,6 +188,9 @@ body {
 .answers-list {
     list-style: none; padding: 0; margin: 0; counter-reset: answer-counter;
 }
+.certa{
+    background-color: #34c759;
+}
 .answer-option {
     background-color: #ffffff; font-size: 1.1rem; font-weight: 500;
     color: #3f3f3f; padding: 15px 20px; margin-bottom: 15px;
@@ -205,12 +208,18 @@ body {
     transform: scale(1.04);
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
     transition: all 0.3s ease-in-out;
-    background-color: #fff8e7;
 }
 
 .answer-option:hover .answer-letter {
     border-color: #ffb84c;
     color: #ffb84c;
+}
+.certa{
+    background-color: #41fa6f34;
+}
+
+.errada{
+    background-color: #fa41419e;
 }
 
 /* .answer-option:not(:first-child)::before {
