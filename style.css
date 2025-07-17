@@ -8,137 +8,189 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    margin: 0;  
+    margin: 0;
+   
 }
 
-/* --- Contêiner Principal --- */
+/* --- Wrapper Principal (Flexbox) --- */
+.main-wrapper {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    align-items:  center;
+}
+
+/* =============== PAINEL DE ESTATÍSTICAS =============== */
+.stats-panel {
+    background-color: #ffffff;
+    padding: 25px;
+    border-radius: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.stats-panel h3 {
+    text-align: center;
+    margin: 0 0 10px 0;
+    color: #333;
+    font-size: 1.5rem;
+}
+
+.stats-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.stat-item {
+    background-color: #f7f8fc;
+    border-radius: 12px;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.stat-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.4rem;
+}
+.stat-icon.questions { background-color: #6a85ff; }
+.stat-icon.correct   { background-color: #34c759; }
+.stat-icon.wrong     { background-color: #ff3b30; }
+
+.stat-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-value {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #333;
+    line-height: 1.1;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: #6c757d;
+}
+
+/* Botão de Ajuda */
+.help-button {
+    background: linear-gradient(45deg, #ff9a44, #ff6a55);
+    color: #ffffff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    padding: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    box-shadow: 0 4px 15px rgba(255, 120, 85, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* .help-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 120, 85, 0.5);
+} */
+
+.help-counter {
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+/* =============== QUIZ CONTAINER =============== */
 .quiz-container {
     width: 100%;
     max-width: 480px;
     position: relative;
 }
 
-/* --- Balão da Pergunta --- */
+/* (O restante do CSS do quiz permanece o mesmo) */
+
 .question-bubble {
-    background-color: #ffffff;
-    padding: 20px 25px;
-    border-radius: 1.5rem;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    position: relative;
-    margin-top: 40px; /* Espaço para o '?' acima */
-    margin-bottom: 50px; /* Espaço para a cauda e as opções */
+    background-color: #ffffff; padding: 20px 25px; border-radius: 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); text-align: center;
+    position: relative; margin-top: 40px; margin-bottom: 50px;
+    display: flex;
 }
-
 .question-bubble h2 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #333;
-    margin: 0;
+    font-size: 1.4rem; font-weight: 600; color: #333; margin: 0;
 }
-
-/* Cauda do balão */
 .question-bubble::after {
-    content: '';
-    position: absolute;
-    bottom: -10px;
-    left: 45px;
-    width: 20px;
-    height: 20px;
-    background-color: #ffffff;
-    transform: rotate(45deg);
-    border-radius: 3px;
+    content: ''; position: absolute; bottom: -10px; left: 45px;
+    width: 20px; height: 20px; background-color: #ffffff;
+    transform: rotate(45deg); border-radius: 3px;
 }
-
-/* Círculo com o '?' */
 .question-mark-wrapper {
-    position: absolute;
-    top: -40px; /* Puxa o círculo para cima */
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #ffffff;
-    border-radius: 50%;
-    padding: 5px;
+    position: absolute; top: -55px; left: 50%; transform: translateX(-50%);
+    background-color: #ffffff; border-radius: 50%; padding: 5px;
 }
-
 .question-mark {
-    background-color: #e4e9ff;
-    color: #6a85ff;
-    width: 65px;
-    height: 65px;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 2.2rem;
-    font-weight: 700;
+    background-color: #e4e9ff; color: #6a85ff; width: 65px; height: 65px;
+    border-radius: 50%; display: flex; justify-content: center;
+    align-items: center; font-size: 2.2rem; font-weight: 700;
 }
-
-/* --- Lista de Respostas --- */
 .answers-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    counter-reset: answer-counter;
+    list-style: none; padding: 0; margin: 0; counter-reset: answer-counter;
 }
-
 .answer-option {
-    background-color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 500;
-    color: #3f3f3f;
-    padding: 15px 20px;
-    margin-bottom: 15px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
-    display: flex;
-    align-items: center;
-    position: relative;
+    background-color: #ffffff; font-size: 1.1rem; font-weight: 500;
+    color: #3f3f3f; padding: 15px 20px; margin-bottom: 15px;
+    border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
+    display: flex; align-items: center; position: relative;
 }
-
-/* Letra da opção (A, B, C, D) */
 .answer-letter {
-    width: 32px;
-    height: 32px;
-    border: 3px solid;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-right: 20px;
-    font-weight: 600;
-    position: relative;
+    width: 32px; height: 32px; border: 3px solid; border-radius: 50%;
+    display: flex; justify-content: center; align-items: center;
+    margin-right: 20px; font-weight: 600; position: relative;
 }
-
-/* Linha pontilhada conectora */
-.answer-option:not(:first-child)::before {
-    content: '';
-    position: absolute;
-    left: 17px;
-    top: -15px;
-    height: 15px;
-    border-left: 2px dotted #dcdcdc;
-}
-
-/* Cores das opções */
+/* .answer-option:not(:first-child)::before {
+    content: ''; position: absolute; left: 17px; top: -15px;
+    height: 15px; border-left: 2px dotted #dcdcdc;
+} */
 .color-a .answer-letter { border-color: #c9b6ff; color: #c9b6ff; }
 .color-b .answer-letter { border-color: #99d9b1; color: #99d9b1; }
 .color-c .answer-letter { border-color: #ffc4c4; color: #ffc4c4; }
 .color-d .answer-letter { border-color: #a0e1e1; color: #a0e1e1; }
+.answer-option.locked { background-color: #f7f7f7; color: #b0b0b0; }
+.answer-option.locked .answer-letter { border-color: #e0e0e0; color: #c1c1c1; }
+.lock-icon { margin-left: auto; color: #b0b0b0; font-size: 1.1rem; }
 
-/* Estilo para a opção bloqueada */
-.answer-option.locked {
-    background-color: #f7f7f7;
-    color: #b0b0b0;
-}
 
-.answer-option.locked .answer-letter {
-    border-color: #e0e0e0;
-    color: #c1c1c1;
-}
-
-.lock-icon {
-    margin-left: auto; /* Empurra o ícone para a direita */
-    color: #b0b0b0;
-    font-size: 1.1rem;
+/* --- Media Query para Responsividade --- */
+@media (max-width: 900px) {
+    .main-wrapper {
+        flex-direction: column; /* Empilha os itens verticalmente */
+        align-items: center;    /* Centraliza os itens empilhados */
+    }
+    .stats-panel {
+        width: 100%;
+        max-width: 480px; /* Faz o painel ter a mesma largura máxima do quiz */
+        order: 1; /* Faz o painel aparecer primeiro */
+    }
+    .quiz-container {
+        order: 2; /* Faz o quiz aparecer depois */
+    }
 }

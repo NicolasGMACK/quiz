@@ -3,40 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Design</title>
+    <title>Quiz com Painel de Stats</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 <body>
 
-    <div class="quiz-container">
-        <div class="question-bubble">
-            <div class="question-mark-wrapper">
-                <div class="question-mark">?</div>
+    <div class="main-wrapper">
+        <aside class="stats-panel">
+            <h3>Estatísticas</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-icon questions">
+                        <i class="fa-solid fa-list-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value">3/10</span>
+                        <span class="stat-label">Questões</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon correct">
+                        <i class="fa-solid fa-check"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value">2</span>
+                        <span class="stat-label">Acertos</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-icon wrong">
+                        <i class="fa-solid fa-xmark"></i>
+                    </div>
+                    <div class="stat-info">
+                        <span class="stat-value">1</span>
+                        <span class="stat-label">Erros</span>
+                    </div>
+                </div>
             </div>
-            <h2>Which is the smallest country in the world?</h2>
-        </div>
+            <button class="help-button">
+                <i class="fa-solid fa-lightbulb"></i>
+                <span>Ajuda</span>
+                <span class="help-counter">3</span>
+            </button>
+        </aside>
 
-        <ul class="answers-list">
-            <li class="answer-option color-a">
-                <div class="answer-letter">A</div>
-                <span>France</span>
-            </li>
-            <li class="answer-option color-b">
-                <div class="answer-letter">B</div>
-                <span>Egypt</span>
-            </li>
-            <li class="answer-option color-c locked">
-                <div class="answer-letter">C</div>
-                <span>Vatican City</span>
-                <i class="fas fa-lock lock-icon"></i>
-            </li>
-            <li class="answer-option color-d">
-                <div class="answer-letter">D</div>
-                <span>Singapore</span>
-            </li>
-        </ul>
+        <main class="quiz-container">
+            <div class="question-bubble">
+                <div class="question-mark-wrapper">
+                    <div class="question-mark">?</div>
+                </div>
+                <h2>Which is the MENORZIN country in the world?</h2>
+            </div>
+
+            <ul class="answers-list">
+                <li class="answer-option color-a">
+                    <div class="answer-letter">A</div>
+                    <span>France</span>
+                </li>
+                <li class="answer-option color-b">
+                    <div class="answer-letter">B</div>
+                    <span>Egypt</span>
+                </li>
+                <li class="answer-option color-c locked">
+                    <div class="answer-letter">C</div>
+                    <span>Vatican City</span>
+                    <i class="fas fa-lock lock-icon"></i>
+                </li>
+                <li class="answer-option color-d">
+                    <div class="answer-letter">D</div>
+                    <span>Singapore</span>
+                </li>
+            </ul>
+        </main>
     </div>
-
+<script src="script.js"></script>
 </body>
 </html>
