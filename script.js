@@ -16,8 +16,10 @@ const questoes = [
  
 
 function renderizarAlternativas() {
+    const titulo = document.querySelector(".question-bubble h2");
+     titulo.textContent = questoes[0].titulo;
 
-    spans = document.querySelectorAll('li span');
+    const spans = document.querySelectorAll('li span');
     const resps = questoes[0].respostas;
    
 
@@ -26,10 +28,5 @@ function renderizarAlternativas() {
         });
 
 }
-renderizarAlternativas();
+renderizarAlternativas();   
 
-
-// TextoQuestão.textContent = questoes[0].titulo;
-// letraA.textContent = questoes[0].respostas[0];
-
-// console.log(letraA);
