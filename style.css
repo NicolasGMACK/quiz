@@ -160,6 +160,7 @@ body {
     color: #3f3f3f; padding: 15px 20px; margin-bottom: 15px;
     border-radius: 12px; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.07);
     display: flex; align-items: center; position: relative;
+    cursor: pointer;
 }
 .answer-letter {
     width: 32px; height: 32px; border: 3px solid; border-radius: 50%;
@@ -174,7 +175,7 @@ body {
 .color-b .answer-letter { border-color: #99d9b1; color: #99d9b1; }
 .color-c .answer-letter { border-color: #ffc4c4; color: #ffc4c4; }
 .color-d .answer-letter { border-color: #a0e1e1; color: #a0e1e1; }
-.answer-option.locked { background-color: #f7f7f7; color: #b0b0b0; }
+.answer-option.locked { background-color: #f7f7f7; color: #b0b0b0; cursor: default; }
 .answer-option.locked .answer-letter { border-color: #e0e0e0; color: #c1c1c1; }
 .lock-icon { margin-left: auto; color: #b0b0b0; font-size: 1.1rem; }
 
