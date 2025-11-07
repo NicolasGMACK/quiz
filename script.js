@@ -60,15 +60,15 @@ document.addEventListener("DOMContentLoaded", () => {
     let acertos = 0;
     let erros = 0;
     
-    let contadorAjuda = 3;
+    // let contadorAjuda = 3;
     
 
     function renderizarDashboard() {
      const QuestaoElement = document.getElementById('questao');
      const acertosElement = document.getElementById('acerto');
      const errosElement = document.getElementById('erro');
-     const ajudaElement = document.querySelector('.help-counter');
-     ajudaElement.textContent = contadorAjuda;
+     // const ajudaElement = document.querySelector('.help-counter');
+     // ajudaElement.textContent = contadorAjuda;
      QuestaoElement.textContent = numeroQuest + '/' + questoes.length;
      acertosElement.textContent = acertos;
      errosElement.textContent = erros;
@@ -104,6 +104,8 @@ document.addEventListener("DOMContentLoaded", () => {
     Precisa ver se tem como escolher aleatoriamente entre as erradas, se for complexo faça o simples.
     importante é resolver usando o que você sabe. Perfeito significa não feito.
     */
+
+/*
 function executarAjuda(alternativaCerta) {
     const buttonHelp = document.querySelector('.help-button');
     buttonHelp.addEventListener("click", () => {
@@ -138,6 +140,7 @@ function executarAjuda(alternativaCerta) {
 }
 
 executarAjuda(3);
+*/
 
     function limpaClasses(){
         opcoes.forEach(conteudo => {
