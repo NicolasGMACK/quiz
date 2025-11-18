@@ -53,22 +53,22 @@ const questoes = [
 
 
 document.addEventListener("DOMContentLoaded", () => {
-    console.log('pagina carregou!');
     const opcoes = document.querySelectorAll('.answer-option');
     let i = 0;
     let numeroQuest = 1;
     let acertos = 0;
     let erros = 0;
     
-    // let contadorAjuda = 3;
+     let contadorAjuda = 3;
     
 
     function renderizarDashboard() {
      const QuestaoElement = document.getElementById('questao');
      const acertosElement = document.getElementById('acerto');
      const errosElement = document.getElementById('erro');
-     // const ajudaElement = document.querySelector('.help-counter');
-     // ajudaElement.textContent = contadorAjuda;
+     const ajudaElement = document.querySelector('.help-counter');
+
+     ajudaElement.textContent = contadorAjuda;
      QuestaoElement.textContent = numeroQuest + '/' + questoes.length;
      acertosElement.textContent = acertos;
      errosElement.textContent = erros;
@@ -104,33 +104,32 @@ document.addEventListener("DOMContentLoaded", () => {
     Precisa ver se tem como escolher aleatoriamente entre as erradas, se for complexo faça o simples.
     importante é resolver usando o que você sabe. Perfeito significa não feito.
     */
-
-/*
 function executarAjuda(alternativaCerta) {
     const buttonHelp = document.querySelector('.help-button');
+
+     const alternativas = [0, 1, 2, 3];
+        let alternativasErradas =   alternativas.filter((valor) => {
+            return valor !=  alternativaCerta;
+        });
+
     buttonHelp.addEventListener("click", () => {
         
         if (contadorAjuda != 0){
             contadorAjuda--;
+            
         renderizarDashboard();
         
-        let possiblidades = [0, 1, 2, 3];
-     const novoarray =   possiblidades.filter((valor) => {
-            return valor !=  alternativaCerta
-        });
-        console.log(novoarray);
-       let indiceAleatorio = Math.floor(Math.random() * novoarray.length);
-       valorReal = novoarray[indiceAleatorio];
-       const novo = novoarray.splice(indiceAleatorio, 1);
-       console.log(novo);
+   
 
-       console.log(valorReal);
+       let indiceAleatorio = Math.floor(Math.random() * alternativasErradas.length);
+       let alternativaCancelada = alternativasErradas[indiceAleatorio];
+        alternativasErradas.splice(indiceAleatorio, 1);
             
-            opcoes[valorReal].classList.add('locked');
+            opcoes[alternativaCancelada].classList.add('locked');
 
             const icone = document.createElement('i');
             icone.className = 'fas fa-lock lock-icon';
-            opcoes[valorReal].appendChild(icone);
+            opcoes[alternativaCancelada].appendChild(icone);
         
         
 } if (contadorAjuda < 1) {
@@ -140,7 +139,6 @@ function executarAjuda(alternativaCerta) {
 }
 
 executarAjuda(3);
-*/
 
     function limpaClasses(){
         opcoes.forEach(conteudo => {
@@ -158,7 +156,6 @@ executarAjuda(3);
                 if (index === alternativaCerta) {
                     opcoes[index].classList.add('certa');
                     acertos++;
-                    console.log(opcoes);
 
                 } else {
                     opcoes[index].classList.add('errada');
